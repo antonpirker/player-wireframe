@@ -171,6 +171,7 @@
             window.scrollTo(0,1);
 
             $('.home').on('click', function() {
+                $('.current-playlist').hide();
                 $('.playlist-selection').show();
                 $('.player').hide();
                 $('.play').hide();
@@ -213,6 +214,11 @@
                 $('.current-song').attr('src', $('.next-song').attr('src'));
                 $('.next-song').attr('src', $('.next-song2').attr('src'));
                 $('.next-song2').attr('src', tmp);
+            });
+            $('.current-song').on('click', function() {
+                $('.play').toggle();
+                $('.stop').toggle();
+                $('.indicator').toggleClass('indicator-animation');
             });
         });
     </script>
