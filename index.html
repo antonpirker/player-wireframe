@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container-fluid {
+            height: 100%;
+        }
+        .container-fluid .row {
+            height: 100%;
+        }
+        .menu {
+            height: 100%;
+        }
+        .playlist-selection {
+            height: 100%;
+        }
+        .playlist-selection .row,
+        .menu .row {
+            height: 33%;
+        }
+        .playlist-selection .row .col,
+        .menu .row .col {
+            text-align: center;
+        }
+        .img-responsive {
+            width: 70%;
+        }
+
+        .player .previous .img-responsive {
+            width: 100%;
+        }
+
+        .player .current {
+            text-align: center;
+        }
+        .player .current .img-responsive{
+            width: 100%;
+            z-index: 100;
+        }
+
+        .player .next .img-responsive {
+            width: 100%;
+        }
+
+        .player,
+        .play,
+        .stop,
+        .current-playlist,
+        .previous-song2,
+        .next-song2 {
+            display: none;
+        }
+
+        .indicator {
+            width: 2em;
+            height: 2em;
+            background: red;
+            border-radius: 50%;
+            z-index: 200;
+            position: absolute;
+            bottom: -1em;
+        }
+
+        .indicator-animation {
+            animation: animationFrames linear 60s;
+            animation-iteration-count: 1;
+            transform-origin: 50% 50%;
+        }
+
+        @keyframes animationFrames{
+            0% {
+                transform:  translate(0px,0px);
+            }
+            100% {
+                transform:  translate(200px,0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Menu -->
+        <div class="col menu">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img class="img-responsive home" src="https://img3-secure.targetimg3.com/wcsstore/marketing/com/uimod/299-11222017-01/images/icons/bullseye-black.svg" />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <img class="img-responsive current-playlist" src="http://freevector.co/wp-content/uploads/2013/12/13021-play-button1.png" />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <img class="img-responsive play" src="http://freevector.co/wp-content/uploads/2013/12/13021-play-button1.png" />
+                    <img class="img-responsive stop" src="http://freevector.co/wp-content/uploads/2014/01/7691-stop-square-button-for-media-interface1.png" />
+                </div>
+            </div>
+        </div>
+        <!-- Playlist Selection -->
+        <div class="col-10 playlist-selection">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/1" />
+                </div>
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/2" />
+                </div>
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/3" />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/4" />
+                </div>
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/5" />
+                </div>
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/6" />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/7" />
+                </div>
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/8" />
+                </div>
+                <div class="col">
+                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/9" />
+                </div>
+            </div>
+        </div>
+        <!-- Player-->
+        <div class="col-10 player">
+            <div class="row align-items-center">
+                <div class="col-3 previous">
+                    <img class="img-responsive previous-song2" src="http://lorempixel.com/600/600/nightlife/1" />
+                    <img class="img-responsive previous-song" src="http://lorempixel.com/600/600/nightlife/2" />
+                </div>
+                <div class="col current">
+                    <img class="img-responsive current-song" src="http://lorempixel.com/600/600/nightlife/3" />
+                    <div class="indicator"></div>
+                </div>
+                <div class="col-3 next">
+                    <img class="img-responsive next-song" src="http://lorempixel.com/600/600/nightlife/4" />
+                    <img class="img-responsive next-song2" src="http://lorempixel.com/600/600/nightlife/5" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('.home').on('click', function() {
+                $('.playlist-selection').show();
+                $('.player').hide();
+                $('.play').hide();
+                $('.stop').hide();
+            });
+            $('.playlist').on('click', function() {
+                $('.current-playlist').attr('src', $(this).attr('src'));
+                $('.current-playlist').show();
+                $('.playlist-selection').hide();
+                $('.player').show();
+                $('.play').show();
+            });
+            $('.current-playlist').on('click', function() {
+                $('.playlist-selection').hide();
+                $('.player').show();
+                $('.play').show();
+            });
+            $('.stop').on('click', function() {
+                $('.play').show();
+                $('.stop').hide();
+                $('.indicator').removeClass('indicator-animation');
+            });
+            $('.play').on('click', function() {
+                $('.play').hide();
+                $('.stop').show();
+                $('.indicator').addClass('indicator-animation');
+            });
+            $('.previous-song').on('click', function() {
+                var tmp = $('.next-song2').attr('src');
+                $('.next-song2').attr('src', $('.next-song').attr('src'));
+                $('.next-song').attr('src', $('.current-song').attr('src'));
+                $('.current-song').attr('src', $('.previous-song').attr('src'));
+                $('.previous-song').attr('src', $('.previous-song2').attr('src'));
+                $('.previous-song2').attr('src', tmp);
+            });
+            $('.next-song').on('click', function() {
+                var tmp = $('.previous-song2').attr('src');
+                $('.previous-song2').attr('src', $('.previous-song').attr('src'));
+                $('.previous-song').attr('src', $('.current-song').attr('src'));
+                $('.current-song').attr('src', $('.next-song').attr('src'));
+                $('.next-song').attr('src', $('.next-song2').attr('src'));
+                $('.next-song2').attr('src', tmp);
+            });
+        });
+    </script>
+</body>
+</html>
