@@ -30,11 +30,8 @@
         .playlist-selection .row .col,
         .menu .row .col {
             text-align: center;
+            height: 100%;
         }
-        .img-responsive {
-            width: 70%;
-        }
-
         .player .previous .img-responsive {
             width: 100%;
         }
@@ -49,6 +46,14 @@
 
         .player .next .img-responsive {
             width: 100%;
+        }
+
+        .player .current-song,
+        .player .next-song,
+        .player .previous-song {
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
         }
 
         .player,
@@ -84,66 +89,123 @@
                 transform:  translate(200px,0px);
             }
         }
+        .playlist {
+            height: 100%;
+            padding: 1em 0;
+            box-sizing: border-box;
+        }
+        .playlist img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+        .menu-item {
+            padding: 1em 0;
+        }
+        .menu-item img {
+            width: 100%;
+            height: 100%;
+        }
+        .player {
+          background-size: cover;
+        }
+        .player::after {
+          content: "";
+          background-color: #fff;
+          opacity: 0.5;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          z-index: -1;
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid">
       <div class="row">
+
         <!-- Menu -->
-        <div class="col menu">
-            <div class="row align-items-center">
+        <div class="col-2 menu">
+            <div class="row align-items-center">"
                 <div class="col">
-                    <img class="img-responsive home" src="https://img3-secure.targetimg3.com/wcsstore/marketing/com/uimod/299-11222017-01/images/icons/bullseye-black.svg" />
+                    <div class="menu-item">
+                        <img class="img-responsive home" src="https://img3-secure.targetimg3.com/wcsstore/marketing/com/uimod/299-11222017-01/images/icons/bullseye-black.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">"
+                <div class="col">
+                    <div class="menu-item">
+                    </div>
                 </div>
             </div>
             <div class="row align-items-center">
                 <div class="col">
-                    <img class="img-responsive current-playlist" src="http://freevector.co/wp-content/uploads/2013/12/13021-play-button1.png" />
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col">
-                    <img class="img-responsive play" src="http://freevector.co/wp-content/uploads/2013/12/13021-play-button1.png" />
-                    <img class="img-responsive stop" src="http://freevector.co/wp-content/uploads/2014/01/7691-stop-square-button-for-media-interface1.png" />
+                    <div class="menu-item">
+                        <img class="img-responsive play" src="http://freevector.co/wp-content/uploads/2013/12/13021-play-button1.png" />
+                        <img class="img-responsive stop" src="http://freevector.co/wp-content/uploads/2014/01/7691-stop-square-button-for-media-interface1.png" />
+                    </div>
                 </div>
             </div>
         </div>
+
         <!-- Playlist Selection -->
         <div class="col-10 playlist-selection">
             <div class="row align-items-center">
                 <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/1" />
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/1" />
+                    </div>
                 </div>
                 <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/2" />
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/2" />
+                    </div>
                 </div>
                 <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/3" />
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/4" />
-                </div>
-                <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/5" />
-                </div>
-                <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/6" />
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/3" />
+                    </div>
                 </div>
             </div>
             <div class="row align-items-center">
                 <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/7" />
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/4" />
+                    </div>
                 </div>
                 <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/8" />
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/5" />
+                    </div>
                 </div>
                 <div class="col">
-                    <img class="img-responsive playlist" src="http://lorempixel.com/600/600/abstract/9" />
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/6" />
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/7" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/8" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="playlist">
+                        <img class="img-responsive" src="http://lorempixel.com/600/600/abstract/9" />
+                    </div>
                 </div>
             </div>
         </div>
+
         <!-- Player-->
         <div class="col-10 player">
             <div class="row align-items-center">
@@ -171,20 +233,13 @@
             window.scrollTo(0,1);
 
             $('.home').on('click', function() {
-                $('.current-playlist').hide();
                 $('.playlist-selection').show();
                 $('.player').hide();
                 $('.play').hide();
                 $('.stop').hide();
             });
             $('.playlist').on('click', function() {
-                $('.current-playlist').attr('src', $(this).attr('src'));
-                $('.current-playlist').show();
-                $('.playlist-selection').hide();
-                $('.player').show();
-                $('.play').show();
-            });
-            $('.current-playlist').on('click', function() {
+                $('.player').css('background-image', 'url(' + $(this).find('img').attr('src') + ')');
                 $('.playlist-selection').hide();
                 $('.player').show();
                 $('.play').show();
