@@ -1,10 +1,12 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
+    <title>Music Player</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/animate.css">
 
     <link rel="apple-touch-icon" href="assets/logo.png">
     <link rel="apple-touch-icon" sizes="57x57" href="assets/logo.png">
@@ -87,7 +89,7 @@
         .indicator {
             width: 2em;
             height: 2em;
-            background: #fff;
+            border: 1px solid #fff;
             border-radius: 50%;
             z-index: 200;
             position: absolute;
@@ -95,6 +97,14 @@
             -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
             -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+        }
+
+        .indicator-off {
+            background: #aaa;
+        }
+
+        .indicator-on {
+            background: #3cb664;
         }
 
         .indicator-animation {
@@ -182,8 +192,6 @@
             <div class="row align-items-center">
                 <div class="col">
                     <div class="menu-item">
-                        <img class="img-responsive play" src="http://freevector.co/wp-content/uploads/2013/12/13021-play-button1.png" />
-                        <img class="img-responsive stop" src="http://freevector.co/wp-content/uploads/2014/01/7691-stop-square-button-for-media-interface1.png" />
                     </div>
                 </div>
             </div>
@@ -256,7 +264,7 @@
                 </div>
                 <div class="col current">
                     <img class="img-responsive current-song" src="assets/track3.webp" />
-                    <div class="indicator"></div>
+                    <div class="indicator indicator-off animated infinite"></div>
                 </div>
                 <div class="col-3 next">
                     <img class="img-responsive next-song" src="assets/track4.webp" />
@@ -276,24 +284,11 @@
             $('.home').on('click', function() {
                 $('.playlist-selection').show();
                 $('.player').hide();
-                $('.play').hide();
-                $('.stop').hide();
             });
             $('.playlist').on('click', function() {
                 $('.player .background img').attr('src', $(this).find('img').attr('src'));
                 $('.playlist-selection').hide();
                 $('.player').show();
-                $('.play').show();
-            });
-            $('.stop').on('click', function() {
-                $('.play').show();
-                $('.stop').hide();
-                $('.indicator').removeClass('indicator-animation');
-            });
-            $('.play').on('click', function() {
-                $('.play').hide();
-                $('.stop').show();
-                $('.indicator').addClass('indicator-animation');
             });
             $('.previous-song').on('click', function() {
                 var tmp = $('.next-song2').attr('src');
@@ -312,9 +307,20 @@
                 $('.next-song2').attr('src', tmp);
             });
             $('.current-song').on('click', function() {
-                $('.play').toggle();
-                $('.stop').toggle();
-                $('.indicator').toggleClass('indicator-animation');
+                if($('.indicator').hasClass('indicator-animation')) {
+                    $('.indicator').removeClass('indicator-animation');
+                    $('.indicator').removeClass('pulse');
+
+                    $('.indicator').addClass('indicator-off');
+                    $('.indicator').removeClass('indicator-on');
+
+                } else {
+                    $('.indicator').addClass('indicator-animation');
+                    $('.indicator').addClass('pulse');
+
+                    $('.indicator').addClass('indicator-on');
+                    $('.indicator').removeClass('indicator-off');
+                }
             });
         });
     </script>
