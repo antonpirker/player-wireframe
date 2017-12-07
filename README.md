@@ -2,6 +2,12 @@
 
 This is a proof of concept of a very simple music player. On the main screen you see nine random icons that represent nine different play lists. You can choose one playlist and you see the songs in the playlist. If you click on the album art image in the center you start or stop playback of that song. You can skip to the next/previous song by clicking on the left or right album art image. That's it.
 
+## Demo
+
+You can try the click dummy here: https://antonpirker.github.io/player-wireframe/
+
+Also add it to your home screen!
+
 ## Background
 
 I have a eleven months old girl and I was thinking how she will listen to music when she is older? When I was young we had cassette and CD players, which had a really great physical way of playing music.
